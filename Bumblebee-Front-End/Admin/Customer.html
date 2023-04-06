@@ -1,0 +1,103 @@
+<script src="Header.js"></script>
+<script src="api/jquery-3.6.4.min.js"></script>
+<script src="api/customer.js"></script>
+
+<link href='assets/plugins/data-tables/datatables.bootstrap4.min.css'
+	rel='stylesheet'>
+
+
+<link id="sleek-css" rel="stylesheet" href="assets/css/sleek.css" />
+
+<div class="content-wrapper">
+	<div class="content">
+		<div class="row">
+			<div class="col-12">
+				<div class="card card-default">
+					<div
+						class="card-header card-header-border-bottom d-flex justify-content-between">
+						<h2>View Customers Data</h2>
+					</div>
+
+					<div class="card-body">
+						<div class="basic-data-table compact">
+							<table id="basic-data-table" class="table hover"
+								style="width: 100%">
+								<thead>
+									<tr>
+										<th scope="col">#</th>
+										<th scope="col">Name</th>
+										<th scope="col">Address</th>
+										<th scope="col">Mobile Number</th>
+										<th scope="col">BirthDay</th>
+										<th scope="col">Password</th>
+									</tr>
+								</thead>
+
+								<tbody id="prodTable">
+                                    
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+	</div>
+</div>
+
+
+
+<div class="content-wrapper">
+	<div class="content">
+		<div class="row">
+			<div class="col-lg-6 col-10 mx-auto mt-1">
+				<div class="card card-default">
+					<div class="card-header card-header-border-bottom">
+						<h2>Add Customers</h2>
+					</div>
+					<div class="card-body">							
+							<div class="">
+								<label for="FullName" class="fw-bold">Customer ID : </label>  <input type="text" disabled class="form-control" id="input1"><br>
+							</div>
+							<div>
+								<label for="exampleFormControlPassword">Customer Name : </label>  <input type="text" class="form-control" id="input2"><br>
+							</div>
+							<div>
+								<label for="exampleFormControlPassword">Customer Address : </label> <input type="text" class="form-control" id="input3"> <br>
+							</div>
+							<div>
+								<label for="exampleFormControlPassword">Customer Mobile Number : </label> <input type="text" class="form-control" id="input4"> <br>
+							</div>
+							<div>
+								<label for="exampleFormControlPassword">Customer Birth-Day :
+								</label> <input type="text" class="form-control" id="input5"> <br>
+							</div>
+							<div>
+								<label for="exampleFormControlPassword">Password :
+								</label> <input type="text" class="form-control" id="input6"> <br>
+							</div>
+							<div class="form-footer pt-4 mt-4 border-top mx-auto">
+								<button type="submit" class="btn btn-outline-success" onclick="saveEmp()">Submit</button>
+								<button type="reset" class="btn btn-outline-secondary" onclick="updateEmp()">Update</button>
+								<button type="reset" class="btn btn-outline-danger" onclick="deleteEmp()">Delete</button>
+								<button type="reset" class="btn btn-outline-warning" onclick="resetEmp()">Reset</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<script type="text/javascript">
+	$(document).ready(function() {
+		$('#basic-data-table').DataTable();
+	});
+</script>
+
+<script src="assets/plugins/data-tables/jquery.datatables.min.js"></script>
+<script src="assets/plugins/data-tables/datatables.bootstrap4.min.js"></script>
+
