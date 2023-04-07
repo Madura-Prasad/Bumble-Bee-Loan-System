@@ -1,3 +1,10 @@
+###Used Language
+
+<li>React JS</li>
+<li>HTML</li>
+<li>Spring Bot</li>
+
+
 ### To intsall all rhe required dependecies
 
 ```
@@ -30,9 +37,5 @@ npm run build
 
 Builds the app for production to the `build` folder.<br>
 
-###Used Language
 
-<li>React JS</li>
-<li>HTML</li>
-<li>Spring Bot</li>
 
