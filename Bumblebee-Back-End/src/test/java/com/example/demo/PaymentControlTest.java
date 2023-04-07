@@ -22,12 +22,12 @@ public class PaymentControlTest {
 	public void testSavePayment() {
 		Payment payment = new Payment();
 		payment.setId(1L);
-		payment.setName("Uthpala");
-		payment.setAddress("Moratuwa");
-		payment.setMobile("0783587714");
-		payment.setNote("No");
-		payment.setTotal("1500");
-		payment.setDividedAmount("1500");
+		payment.setName("Madura");
+		payment.setAddress("Main Road");
+		payment.setMobile("0783587735");
+		payment.setNote("Deliver My Office");
+		payment.setTotal("7500");
+		payment.setDividedAmount("2500");
 		paymentRepository.save(payment);
 		assertNotNull(paymentRepository.findById(1L).get());
 	}
