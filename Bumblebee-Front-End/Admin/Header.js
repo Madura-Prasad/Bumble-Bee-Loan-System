@@ -14,7 +14,7 @@ document.write(`
     <!-- theme meta -->
     <meta name="theme-name" content="sleek" />
 
-    <title>Bumble Bee - Admin Panel</title>
+    <title>Bumble Bee - Admin</title>
 
     <!-- GOOGLE FONTS -->
     <link
