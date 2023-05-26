@@ -1,0 +1,57 @@
+<script src="Header.js"></script>
+<script src="api/jquery-3.6.4.min.js"></script>
+<script src="api/installment.js"></script>
+
+<link href='assets/plugins/data-tables/datatables.bootstrap4.min.css' rel='stylesheet'>
+
+
+<link id="sleek-css" rel="stylesheet" href="assets/css/sleek.css" />
+
+<div class="content-wrapper">
+    <div class="content">
+        <div class="row">
+            <div class="col-12">
+                <div class="card card-default">
+                    <div class="card-header card-header-border-bottom d-flex justify-content-between">
+                        <h2>View Installments Data</h2>
+                    </div>
+
+                    <div class="card-body">
+                        <div class="basic-data-table compact">
+                            <table id="basic-data-table" class="table hover" style="width: 100%">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">#</th>
+                                        <th scope="col">Name</th>
+                                        <th scope="col">Address</th>
+                                        <th scope="col">Mobile Number</th>
+                                        <th scope="col">Note</th>
+                                        <th scope="col">Installment 01</th>
+                                        <th scope="col">Installment 02</th>
+                                        <th scope="col">Installment 03</th>
+                                        <th scope="col">Total</th>
+                                    </tr>
+                                </thead>
+
+                                <tbody id="prodTable">
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#basic-data-table').DataTable();
+    });
+</script>
+
+<script src="assets/plugins/data-tables/jquery.datatables.min.js"></script>
+<script src="assets/plugins/data-tables/datatables.bootstrap4.min.js"></script>
