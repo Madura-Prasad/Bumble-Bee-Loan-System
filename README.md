@@ -1,10 +1,3 @@
-### Used Language
-
-<li>React JS</li>
-<li>HTML</li>
-<li>Spring Bot</li>
-
-
 ### To intsall all rhe required dependecies
 
 ```
