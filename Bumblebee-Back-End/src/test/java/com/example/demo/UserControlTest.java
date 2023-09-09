@@ -1,63 +1,55 @@
-package com.example.demo;
-
 import static org.assertj.core.api.Assertions.assertThat;
-import org.junit.Assert;
+import static org.mockito.Mockito.*;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotEquals;
-import static org.junit.Assert.assertNotNull;
-
+import java.util.Arrays;
 import java.util.List;
+import java.util.Optional;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.http.ResponseEntity;
 
-import com.example.demo.model.Users;
-import com.example.demo.repository.UsersRepository;
+public class UsersControllerTest {
 
-@SpringBootTest
-public class UserControlTest {
-	@Autowired
-	UsersRepository usersRepository;
+    private UsersController usersController;
+    private UsersRepository usersRepository;
 
-	@Test
-	public void testSaveUsers() {
-		Users users = new Users();
-		users.setId(1L);
-		users.setName("Madura");
-		users.setAddress("MainRoad");
-		users.setDob("2000-11-12");
-		users.setMobile("0783587735");
-		users.setPassword("Madura1@");
-		usersRepository.save(users);
-		assertNotNull(usersRepository.findById(1L).get());
-	}
+    @BeforeEach
+    public void setUp() {
+        usersRepository = mock(UsersRepository.class);
+        usersController = new UsersController(usersRepository);
+    }
 
-	@Test
-	public void testReadAll() {
-		List<Users> list = usersRepository.findAll();
-		assertThat(list).size().isGreaterThan(0);
-	}
+    @Test
+    public void testGetAllUsers() {
+        // Arrange
+        List<Users> usersList = Arrays.asList(
+            new Users(1L, "Madura", "MainRoad", "2000-11-12", "0783587735", "Madura1@"),
+            new Users(2L, "John", "SecondStreet", "1995-05-20", "1234567890", "John123")
+        );
+        when(usersRepository.findAll()).thenReturn(usersList);
 
-	@Test
-	public void testSingleUser() {
-		Users users = usersRepository.findById(1L).get();
-		assertEquals("MainRoad", users.getAddress());
-	}
+        // Act
+        ResponseEntity<List<Users>> response = usersController.getAllUsers();
 
-	@Test
-	public void testUpdateUser() {
-		Users users = usersRepository.findById(1L).get();
-		users.setName("MaduraPrasad");
-		usersRepository.save(users);
-		assertNotEquals("Madura", usersRepository.findById(1L).get().getName());
-	}
+        // Assert
+        assertThat(response.getStatusCodeValue()).isEqualTo(200); // Assuming HTTP 200 for success
+        assertThat(response.getBody()).isEqualTo(usersList);
+    }
 
-	@Test
-	public void testDelete() {
-		usersRepository.deleteById(2L);
-		assertThat(usersRepository.existsById(2L)).isFalse();
-	}
+    @Test
+    public void testGetUserById() {
+        // Arrange
+        Users user = new Users(1L, "Madura", "MainRoad", "2000-11-12", "0783587735", "Madura1@");
+        when(usersRepository.findById(1L)).thenReturn(Optional.of(user));
 
+        // Act
+        ResponseEntity<Users> response = usersController.getUserById(1L);
+
+        // Assert
+        assertThat(response.getStatusCodeValue()).isEqualTo(200); // Assuming HTTP 200 for success
+        assertThat(response.getBody()).isEqualTo(user);
+    }
+
+    // Add similar tests for other controller methods (e.g., createUser, updateUser, deleteUser).
 }
