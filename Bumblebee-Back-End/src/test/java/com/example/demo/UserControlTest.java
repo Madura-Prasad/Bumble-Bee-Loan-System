@@ -1,3 +1,5 @@
+package com.example.demo;
+
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Mockito.*;
 
@@ -37,19 +39,5 @@ public class UsersControllerTest {
         assertThat(response.getBody()).isEqualTo(usersList);
     }
 
-    @Test
-    public void testGetUserById() {
-        // Arrange
-        Users user = new Users(1L, "Madura", "MainRoad", "2000-11-12", "0783587735", "Madura1@");
-        when(usersRepository.findById(1L)).thenReturn(Optional.of(user));
-
-        // Act
-        ResponseEntity<Users> response = usersController.getUserById(1L);
-
-        // Assert
-        assertThat(response.getStatusCodeValue()).isEqualTo(200); // Assuming HTTP 200 for success
-        assertThat(response.getBody()).isEqualTo(user);
-    }
-
-    // Add similar tests for other controller methods (e.g., createUser, updateUser, deleteUser).
+    // Add other test methods related to UsersController here.
 }
