@@ -40,22 +40,22 @@ public class UserControlTest {
 
 	@Test
 	public void testSingleUser() {
-		Users users = usersRepository.findById(1L).get();
+		Users users = usersRepository.findById(2L).get();
 		assertEquals("MainRoad", users.getAddress());
 	}
 
 	@Test
 	public void testUpdateUser() {
-		Users users = usersRepository.findById(1L).get();
+		Users users = usersRepository.findById(2L).get();
 		users.setName("MaduraPrasad");
 		usersRepository.save(users);
-		assertNotEquals("Madura", usersRepository.findById(1L).get().getName());
+		assertNotEquals("Madura", usersRepository.findById(2L).get().getName());
 	}
 
 	@Test
 	public void testDelete() {
 		usersRepository.deleteById(2L);
-		assertThat(usersRepository.existsById(2L)).isFalse();
+		assertThat(usersRepository.existsById(3L)).isFalse();
 	}
 
 }
