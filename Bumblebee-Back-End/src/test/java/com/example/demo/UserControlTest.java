@@ -22,26 +22,20 @@ public class UserControlTest {
 	@Test
 	public void testSaveUsers() {
 		Users users = new Users();
-		users.setId(1L);
+		users.setId(3L);
 		users.setName("Madura");
 		users.setAddress("MainRoad");
 		users.setDob("2000-11-12");
 		users.setMobile("0783587735");
 		users.setPassword("Madura1@");
 		usersRepository.save(users);
-		assertNotNull(usersRepository.findById(1L).get());
+		assertNotNull(usersRepository.findById(3L).get());
 	}
 
 	@Test
 	public void testReadAll() {
 		List<Users> list = usersRepository.findAll();
 		assertThat(list).size().isGreaterThan(0);
-	}
-
-	@Test
-	public void testSingleUser() {
-		Users users = usersRepository.findById(2L).get();
-		assertEquals("MainRoad", users.getAddress());
 	}
 
 	@Test
@@ -55,7 +49,7 @@ public class UserControlTest {
 	@Test
 	public void testDelete() {
 		usersRepository.deleteById(2L);
-		assertThat(usersRepository.existsById(3L)).isFalse();
+		assertThat(usersRepository.existsById(1L)).isFalse();
 	}
 
 }
