@@ -1,6 +1,8 @@
 package com.example.demo;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import org.junit.Assert;
+
 import static org.junit.Assert.assertNotEquals;
 import static org.junit.Assert.assertNotNull;
 
