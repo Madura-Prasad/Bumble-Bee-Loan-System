@@ -13,7 +13,7 @@ import org.springframework.http.ResponseEntity;
 
 public class UserControllerTest {
 
-    private UserController usersController;
+    private UsersController usersController;
     private UsersRepository usersRepository;
 
     @BeforeEach
