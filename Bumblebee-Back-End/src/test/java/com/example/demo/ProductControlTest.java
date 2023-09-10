@@ -10,14 +10,11 @@ import java.util.List;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.junit4.SpringRunner;
 
 import com.example.demo.model.Product;
 import com.example.demo.repository.ProductRepository;
 
-@RunWith(SpringRunner.class)
 @SpringBootTest
 public class ProductControlTest {
 
