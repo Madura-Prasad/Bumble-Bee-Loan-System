@@ -28,5 +28,5 @@ jobs:
         distribution: 'temurin'
         cache: maven
     - name: Build with Maven
-      working-directory: Bumblebee-Back-End
+      working-directory: Bumblebee--Back-End
       run: mvn clean install -Dmaven.test.skip=true
